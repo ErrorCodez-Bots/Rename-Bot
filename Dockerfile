@@ -1,19 +1,23 @@
-# Use the official Python image
-FROM python:3.9-slim-buster
+# Use a modern, actively supported Python base image
+FROM python:3.10-slim
 
-RUN apt-get update -qq && apt-get -y install ffmpeg
+# Install system dependencies & clean apt cache to keep image lightweight
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ffmpeg \
+    git \
+    gcc \
+    && rm -rf /var/lib/apt/lists/*
 
-# Set the working directory in the container
+# Set working directory
 WORKDIR /app
 
-# Copy the dependencies file to the working directory
+# Install Python dependencies first (leverages Docker layer caching)
 COPY requirements.txt .
+RUN pip install --no-cache-dir -U pip && \
+    pip install --no-cache-dir -r requirements.txt
 
-# Install any needed dependencies specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the rest of the application code to the working directory
+# Copy application source code
 COPY . .
 
-# Command to run the application
-CMD ["python", "bot.py"]
+# Start the bot
+CMD ["python3", "bot.py"]
