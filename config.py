@@ -30,8 +30,8 @@ class Config(object):
     
     #force subs
     IS_FSUB = os.environ.get("IS_FSUB", "False").lower() == "true"  # Set "True" For Enable Force Subscribe
-    AUTH_CHANNELS = list(map(int, os.environ.get("AUTH_CHANNELS", "-1002923649975").split())) # Add Multiple channel ids
-    AUTH_REQ_CHANNELS = list(map(int, os.environ.get("AUTH_REQ_CHANNELS", "-1002923649975").split())) # Add Multiple channel ids
+    AUTH_CHANNELS = list(map(int, os.environ.get("AUTH_CHANNELS", "-1002172875461").split())) # Add Multiple channel ids
+    AUTH_REQ_CHANNELS = list(map(int, os.environ.get("AUTH_REQ_CHANNELS", "-1002172875461").split())) # Add Multiple channel ids
     FSUB_EXPIRE = int(os.environ.get("FSUB_EXPIRE", 2))  # minutes, 0 = no expiry
         
     # wes response configuration     
