@@ -58,7 +58,7 @@ async def rename_start(client, message):
         except Exception as e:
             print(f"Error in rename_start: {e}")
     else:
-        if rkn_file.file_size > 2000 * 1024 * 1024 and client.premium:
+        if rkn_file.file_size > 4000 * 1024 * 1024 * 1024 * 1024 and client.premium:
             return await message.reply_text("If you want to rename 4GB+ files then you will have to buy premium. /plans")
         try:
             await message.reply_text(
