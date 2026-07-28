@@ -39,7 +39,7 @@ async def rename_start(client, message):
          
     if await digital_botz.has_premium_access(user_id) and client.premium:
         if not Config.STRING_SESSION:
-            if rkn_file.file_size > 2000 * 1024 * 1024:
+            if rkn_file.file_size > 4000 * 1024 * 1024 * 1024 * 1024:
                  return await message.reply_text("Sᴏʀʀy Bʀᴏ Tʜɪꜱ Bᴏᴛ Iꜱ Dᴏᴇꜱɴ'ᴛ Sᴜᴩᴩᴏʀᴛ Uᴩʟᴏᴀᴅɪɴɢ Fɪʟᴇꜱ Bɪɢɢᴇʀ Tʜᴀɴ 2Gʙ+")
         try:
             await message.reply_text(
