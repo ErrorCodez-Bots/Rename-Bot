@@ -250,7 +250,7 @@ async def upload_doc(bot, update):
     upload_type = update.data.split("#")[1]
     # Use the correct file path based on metadata mode
     final_file_path = metadata_path if metadata_mode and os.path.exists(metadata_path) else file_path
-    if media.file_size > 2000 * 1024 * 1024:
+    if media.file_size > 4000 * 1024 * 1024 * 1024 * 1024:
         # Upload file using unified function for large files
         filw, error = await upload_files(
             app, Config.LOG_CHANNEL, upload_type, final_file_path, 
